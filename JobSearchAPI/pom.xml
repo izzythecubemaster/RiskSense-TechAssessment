@@ -5,7 +5,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>risksense.restapi.assessment</groupId>
   <artifactId>JobSearch</artifactId>
-  <version>1.0.1</version>
+  <version>1.0.2</version>
 
   <dependencies>
     <dependency>
@@ -29,6 +29,16 @@
       <groupId>io.vertx</groupId>
       <artifactId>vertx-web</artifactId>
       <version>3.0.0</version>
+    </dependency>
+    <dependency>
+      <groupId>mysql</groupId>
+      <artifactId>mysql-connector-java</artifactId>
+      <version>5.1.39</version>
+    </dependency>
+    <dependency>
+      <groupId>org.json</groupId>
+      <artifactId>json</artifactId>
+      <version>20180130</version>
     </dependency>
   </dependencies>
 
