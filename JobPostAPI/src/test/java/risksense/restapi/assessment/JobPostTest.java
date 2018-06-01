@@ -24,7 +24,7 @@ public class JobPostTest {
     vertx = Vertx.vertx();
     port = 8082;
     DeploymentOptions options = new DeploymentOptions().setConfig(new JsonObject().put("http.port", port));
-    vertx.deployVerticle(JobSearch.class.getName(), context.asyncAssertSuccess());
+    vertx.deployVerticle(JobPost.class.getName(), context.asyncAssertSuccess());
   }
 
   @After
@@ -33,13 +33,13 @@ public class JobPostTest {
   }
 
   @Test
-  public void testJobSearch(TestContext context) {
+  public void testJobPost(TestContext context) {
     final Async async = context.async();
 
     vertx.createHttpClient().getNow(port, "localhost", "/",
      response -> {
       response.handler(body -> {
-        context.assertTrue(body.toString().contains("Result"));
+        context.assertTrue(body.toString().length() > 0);
         async.complete();
       });
     });

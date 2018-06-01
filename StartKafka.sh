@@ -8,4 +8,4 @@ nohup bin/kafka-server-start.sh config/server.properties > /dev/null 2>&1 &
 sleep 2
 
 # Only run this once.
-bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic jobs
+#bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic jobs
