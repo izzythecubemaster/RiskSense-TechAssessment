@@ -46,7 +46,7 @@ public class JobSearch extends AbstractVerticle {
     vertx
       .createHttpServer()
       .requestHandler(router::accept)
-      .listen(config().getInteger("http.port",8082), result -> {
+      .listen(config().getInteger("http.port",80), result -> {
         if (result.succeeded()) {
           fut.complete();
         } else {

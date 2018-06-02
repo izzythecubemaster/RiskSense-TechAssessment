@@ -22,7 +22,7 @@ public class JobSearchTest {
   @Before
   public void setUp(TestContext context) throws IOException {
     vertx = Vertx.vertx();
-    port = 8082;
+    port = 80;
     DeploymentOptions options = new DeploymentOptions().setConfig(new JsonObject().put("http.port", port)); 
     vertx.deployVerticle(JobSearch.class.getName(), context.asyncAssertSuccess());
   }

@@ -30,6 +30,8 @@ import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.ProducerRecord;
 import org.apache.kafka.clients.producer.Producer;
 
+import java.util.Date;
+
 public class JobPost extends AbstractVerticle {
 
   @Override
@@ -63,13 +65,14 @@ public class JobPost extends AbstractVerticle {
     props.put("buffer.memory", 1572864);
     props.put("key.serializer", "org.apache.kafka.common.serialization.StringSerializer");
     props.put("value.serializer", "org.apache.kafka.common.serialization.StringSerializer");
-    Producer<String, String> producer = new KafkaProducer<String, String>(props);    
 
     Integer listingsSent = 0;
-
+    java.util.Date startDate = new java.util.Date();
+    long startTime = startDate.getTime();
     // Iterate through job listing array and send the listing in JSON format to the Kafka server's queue
     for(int i = 0; i < postData.length(); i++)
     {
+      Producer<String, String> producer = new KafkaProducer<String, String>(props);
       JSONObject jobListing = postData.getJSONObject(i);
       String jobString = jobListing.toString();
       producer.send(new ProducerRecord<String, String>(topicName, "json_listing_"+jobString.hashCode(),jobString));
@@ -77,11 +80,14 @@ public class JobPost extends AbstractVerticle {
       producer.close();
     }
     String responseString;
+    java.util.Date endDate = new java.util.Date();
+    long endTime = endDate.getTime();
+    long secondsElapsed = (endTime-startTime)/1000;
     if (listingsSent == 1){
-      responseString = "<h1>"+listingsSent+" Job listing has been added to the Kafka queue.</h1>";
+      responseString = "<h1>"+listingsSent+" Job listing has been added to the Kafka queue in "+secondsElapsed+" seconds.</h1>";
     }
     else {
-      responseString = "<h1>"+listingsSent+" Job listings have been added to the Kafka queue.</h1>";
+      responseString = "<h1>"+listingsSent+" Job listings have been added to the Kafka queue in "+secondsElapsed+" seconds.</h1>";
     }
     routingContext.response()
       .setStatusCode(201)
