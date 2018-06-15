@@ -35,7 +35,8 @@ def returnJobs(jobNumber):
     if isDevelop:
         print finalJsonString
     else:
-        r = requests.post('http://ec2-18-188-80-81.us-east-2.compute.amazonaws.com:8082', finalJsonString)
+        r = requests.post('localhost:8082', finalJsonString)
         print r.text
                 
-returnJobs(100000)
+#returnJobs(100000)
+returnJobs(100)
