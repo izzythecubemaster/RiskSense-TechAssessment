@@ -1,5 +1,8 @@
 # Job Search API
 
+The completed running project can be accessed through the UI site Job Search, which is located here:
+`http://13.58.141.207`
+
 This project contains various moving parts that lend it to be on the more complex side. The main parts are:
 
 <b>JobSearchAPI (Java)</b> - REST API that queries MySQL DB and responds in JSON data.<br/>
@@ -9,7 +12,7 @@ This project contains various moving parts that lend it to be on the more comple
 
 [The source for this project is available here][src].
 
-<b>Source Code Navigation:</b><br/>
+# Source Code Navigation:
 <b>JobSearchAPI (Java):</b><br/>
 The Java source code can be found under `../JobSearchAPI/` and follows the basic structure for a Maven project, with classes being available in the `../JobSeachAPI/target` directory.<br/>
 <b>JobPostAPI (Java):</b><br/>
