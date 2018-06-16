@@ -25,6 +25,7 @@
 }
 
 #skillbox{
+	min-height: 24px;
 	background-color: #FFF;
 	padding: 4px;
 	border-style: solid;
@@ -90,11 +91,19 @@ hr{
 	margin-top: 26px;
 }
 
+.clear_skill{
+	cursor: pointer;
+}
+
 .pointer-label{
 	font-size: 14px !important;
 	color: #000 !important;
 	top: -22 !important;
 	background-color: rgba(0,0,0,0) !important;
+}
+
+.dropdown{
+	margin-bottom: 16px;
 }
 
 .result{

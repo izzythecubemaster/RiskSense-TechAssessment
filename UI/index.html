@@ -14,12 +14,12 @@
 	<div id="search_area" class="container-fluid">
 		<div class="row">
 			<div id="search_bar" class="col-sm-12 col-md-12">
-				<div class="input-group">
-					<input type="text" class="form-control" placeholder="Search by keywords&hellip;">
+				<form class="input-group">
+					<input name="search_text" id="search_text" type="text" class="form-control" ~(search_keywords)~ placeholder="Search by keywords&hellip;">
 					<span class="input-group-btn">
-						<button type="button" class="btn btn-primary">Search</button>
+						<button type="submit" value="Submit" class="btn btn-primary">Search</button>
 					</span>
-				</div>
+				</form>
 			</div>
 			<div id="filters" class="col-sm-4 col-md-4">
 				<div class="col-sm-12 col-md-12">
@@ -83,5 +83,6 @@
 			</div>
 		<div>
 	</div>
+	<script src="js/client.js"/></script>
 </body>
 
